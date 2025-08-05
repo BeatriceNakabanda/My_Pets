@@ -1,8 +1,5 @@
 package com.www.mypets.ui
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.material3.Button
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx. compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -20,11 +17,9 @@ fun MyPetsApp(viewModel: PetViewModel) {
             showAddPetScreen = false
         }
     } else {
-        Column{
-            Button(onClick = {showAddPetScreen = true}) {
-                Text("Add Pet")
-            }
-            PetListScreen(viewModel = viewModel)
-        }
+        PetListScreen(
+            viewModel = viewModel,
+            onAddPetClick = {showAddPetScreen = true}
+        )
     }
 }

@@ -12,11 +12,15 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.www.mypets.ui.MyPetsApp
 import com.www.mypets.ui.theme.MyPetsTheme
 import com.www.mypets.viewmodel.PetViewModel
+import com.www.mypets.viewmodel.PetViewModelFactory
 
 class MainActivity : ComponentActivity() {
-    private val viewModel: PetViewModel by viewModels()
+    private val viewModel: PetViewModel by viewModels {
+        PetViewModelFactory(application)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
